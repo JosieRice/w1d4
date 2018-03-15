@@ -1,31 +1,18 @@
-// The second argument/parameter is expected to be a function
+// Callback's to locate Waldo and his index in an array
 
-// var indexFound = 0;
+
 
 function findWaldo(arr, found) {
-  for (var i = 0; i < arr.length; i++) {
-    if (arr[i] === "Waldo") {
-      // indexFound = i;
-      found(i);   // execute callback
+  arr.forEach(function(element, i) { // .forEach through the arrice from line 18
+    if (element === "Waldo") { // look until you find Waldo
+      found(i);  // runs the function that was the second perameter from below,
+                 // passed i into argument because the index needs to show the index number
     }
-  }
+  });
 }
 
-function actionWhenFound(findIndex) {
-  console.log(`Found him at index ${findIndex}!`);
+function actionWhenFound(findIndex) { //the function that is run when Waldo is found
+  console.log(`Found him at index ${findIndex} !`); // findIndex grabs the i from the function it is run into
 }
 
-
-
-// function findIndex(arr, index) {
-//   for (var i = 0; i < arr.length; i++) {
-//     if (arr[i] === "Waldo") {
-//       index = i;
-//     }
-//   }
-// }
-
-
-// another function that gives the index and added into actionWhenFound callback
-
-findWaldo(["Alice", "Bob", "Waldo", "Winston"], actionWhenFound);
+findWaldo(["Alice", "Bob", "Waldo", "Winston"], actionWhenFound);   // The callback that starts the process, with two perameters (array of name, function when found)
