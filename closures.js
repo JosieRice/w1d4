@@ -1,3 +1,10 @@
+/*
+
+
+
+
+
+
 // exercise 1 - make loaded die
 
 function makeLoadedDie() {                    // creates a function
@@ -24,3 +31,36 @@ console.log(rollLoadedDie());
 console.log(rollLoadedDie());
 // console.log(rollLoadedDie());       these last two return undefined because the array is being cut down
 // console.log(rollLoadedDie());
+
+
+
+
+
+*/
+
+
+
+// Exercise 2 - Countdown
+
+var countdownGenerator = function (countdownStart) {   // creates variable countdownGenerator which has a function as a value
+  return function() {                                   // invokes inner function
+    if (countdownStart > 0) {                   // checks that countdownStart from outer function is above zero to count
+      console.log(`T-minus ${countdownStart}...`);
+    } else if (countdownStart === 0) {       // checks if countdownStart has reached zero for blastoff notification
+      console.log("Blast Off!");
+    } else {                                // continues to tell bub that the rocket is gone if countdown() is pressed more than once for zero
+      console.log("Rockets already gone, bub!")
+    }
+    countdownStart -= 1;
+  }
+};
+
+var countdown = countdownGenerator(3);      // variable to call the countdownGenerator function and starting time
+
+
+countdown(); // T-minus 3...
+countdown(); // T-minus 2...
+countdown(); // T-minus 1...
+countdown(); // Blast Off!
+countdown(); // Rockets already gone, bub!
+countdown(); // Rockets already gone, bub!
